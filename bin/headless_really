@@ -1,12 +1,19 @@
 #!/bin/bash
 
-shift cmd
-shift opt
+opt=$1
 
-if [[ opt="--start" ]]; then
-    /usr/bin/sudo /usr/bin/caffeinate -sdiut 31536000 & # one year
-elif [[ opt="--stop" ]]; then
-    /usr/bin/sudo /usr/bin/killall caffeinate
+start='start'
+stop='stop'
+status='status'
+
+if [[ $opt = $status ]]; then
+    pgrep -x caffeinate 2&> /dev/null && echo "caffeinate is running" || echo "caffeinate is not running"
+elif [[ $opt = $start ]]; then
+    echo "going really headless for one year"
+    /usr/bin/caffeinate -sdiut 31536000 & # one year
+elif [[ $opt = $stop ]]; then
+    echo "killing all caffeinate processes"
+    /usr/bin/killall caffeinate 2&> /dev/null
 else
-    echo "usage: headless_really [--start|--stop]"
+    echo "usage: headless_really [${status}|${start}|${stop}]"
 fi
