@@ -7,13 +7,13 @@ stop='stop'
 status='status'
 
 if [[ $opt = $status ]]; then
-    pgrep -x caffeinate 2&> /dev/null && echo "caffeinate is running" || echo "caffeinate is not running"
+    /usr/bin/pgrep -x caffeinate 2&> /dev/null && /bin/echo "caffeinate is running" || /bin/echo "caffeinate is not running"
 elif [[ $opt = $start ]]; then
-    echo "going really headless for one year"
+    /bin/echo "going really headless for one year"
     /usr/bin/caffeinate -sdiut 31536000 & # one year
 elif [[ $opt = $stop ]]; then
-    echo "killing all caffeinate processes"
+    /bin/echo "killing all caffeinate processes"
     /usr/bin/killall caffeinate 2&> /dev/null
 else
-    echo "usage: headless_really [${status}|${start}|${stop}]"
+    /bin/echo "usage: headless_really [${status}|${start}|${stop}]"
 fi
