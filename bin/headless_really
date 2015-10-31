@@ -1,0 +1,12 @@
+#!/bin/bash
+
+shift cmd
+shift opt
+
+if [[ opt="--start" ]]; then
+    /usr/bin/sudo /usr/bin/caffeinate -sdiut 31536000 & # one year
+elif [[ opt="--stop" ]]; then
+    /usr/bin/sudo /usr/bin/killall caffeinate
+else
+    echo "usage: headless_really [--start|--stop]"
+fi
