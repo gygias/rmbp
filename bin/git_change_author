@@ -15,6 +15,11 @@
 # git remote set-url --push origin https://github.com/user/repo
 # git push --mirror
 
+## fixing refs (?) conflicts on local copy after doing this stuff
+## https://rtcamp.com/tutorials/git/git-resolve-merge-conflicts/
+#grep -lr '<<<<<<<' . | xargs git checkout --ours
+## or --theirs to force server state
+
 git filter-branch --env-filter '
 OLD_EMAIL="old@email.com"
 CORRECT_NAME="gygias"
