@@ -1,6 +1,8 @@
 #!/bin/sh
 
 ## cheat sheet
+# git config --global core.pager cat
+
 # git clone --bare https://github.com/user/repo.git
 # cd repo.git
 # ./this_script
