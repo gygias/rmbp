@@ -1,2 +1,6 @@
 command script import lldb.macosx.heap
 
+process handle -n true -p true -s false SIGPIPE
+
+command alias p print
+command alias mh malloc_info --stack-history
