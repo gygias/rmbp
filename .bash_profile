@@ -3,3 +3,6 @@ if [ -f "${HOME}/.bashrc" ] ; then
 fi
 
 PATH="$PATH:/opt/local/bin:/opt/local/sbin:~/bin"
+
+RPI=169.254.212.123
+alias rpi="ssh -l rpi $RPI"
